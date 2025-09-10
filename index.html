@@ -42,11 +42,11 @@
     body.light .card{background:var(--card-light); color:var(--ink-light);}
     .title{text-align:center;}
     .title h3{margin:0; font-size:22px;}
-    .kv{margin:6px 0;}
-    .k{font-size:10px;}
+    .kv{margin:10px 0;}
+    .k{font-size:12px; font-weight:600;}
     .v{font-size:14px; font-weight:700; text-transform:uppercase;}
-    #qrcode{margin-top:0; align-self:flex-end; transform:translateY(-10px);}
-    #photoImg{width:55px;height:70px;position:absolute;top:20px;left:20px;border:2px solid #ccc;border-radius:6px;object-fit:cover;}
+    #qrcode{margin-top:10px; align-self:flex-end;}
+    #photoImg{width:35px;height:35px;position:absolute;top:8px;left:8px;border:1px solid #ccc;border-radius:50%;object-fit:cover;}
     .logo-top-right{position:absolute;top:20px;right:20px;width:50px;height:auto;}
     .watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.1;z-index:0;width:80%;}
     @media(max-width:600px){
@@ -122,11 +122,11 @@
       <div class="title">
         <h3>MAGE</h3>
       </div>
-      <div class="kv"><div class="k">Name</div><div class="v" id="v_name">—</div></div>
-      <div class="kv"><div class="k">Rank</div><div class="v" id="v_rank">—</div></div>
-      <div class="kv"><div class="k">Passport ID</div><div class="v" id="v_pid">—</div></div>
-      <div class="kv"><div class="k">Issued</div><div class="v" id="v_issued">—</div></div>
-      <div class="kv"><div class="k">Expires</div><div class="v" id="v_expiry">—</div></div>
+      <p class="kv"><span class="k">Name</span><br><span class="v" id="v_name">—</span></p>
+      <p class="kv"><span class="k">Rank</span><br><span class="v" id="v_rank">—</span></p>
+      <p class="kv"><span class="k">Passport ID</span><br><span class="v" id="v_pid">—</span></p>
+      <p class="kv"><span class="k">Issued</span><br><span class="v" id="v_issued">—</span></p>
+      <p class="kv"><span class="k">Expires</span><br><span class="v" id="v_expiry">—</span></p>
       <div id="qrcode"></div>
     </div>
   </section>  <div id="overlay">WELCOME MAGE</div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>  <script>
