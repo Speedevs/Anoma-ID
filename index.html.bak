@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024" />
+  <title>Mages Passport</title>
+  <style>
+    :root{
+      --bg-dark:#0b0c10;
+      --bg-light:#f5f5f5;
+      --card-dark:#111318;
+      --card-light:#ffffff;
+      --ink-dark:#e8e8e8;
+      --ink-light:#1a1a1a;
+      --green:#32cd32;
+      --blue:#1e90ff;
+      --yellow:#ffd700;
+      --golden:#ffcc00;
+      --purple:#800080;
+      --red:#ff0000;
+      --yellowgreen:#9acd32;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui, sans-serif;
+      background:var(--bg-dark); color:var(--ink-dark);
+      display:flex; flex-direction:column; align-items:center; padding:16px; gap:16px;
+    }
+    body.light{background:var(--bg-light); color:var(--ink-light);}
+    header{width:100%; max-width:1100px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; position:relative;}
+    .brand h1{margin:0; font-size:24px; text-align:center; width:100%;}
+    .header-logo img{width:60px;}
+    .panel{padding:16px; border-radius:12px; background:var(--card-dark); color:var(--ink-dark); width:100%; max-width:400px;}
+    body.light .panel{background:var(--card-light); color:var(--ink-light);}
+    .grid{display:grid; gap:12px}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    label{font-size:12px}
+    input,select{padding:10px; border-radius:8px; border:1px solid #ccc; width:100%; text-transform:uppercase;}
+    .btns{display:flex; gap:8px; flex-wrap:wrap;}
+    button{padding:8px 12px; border-radius:8px; border:1px solid #aaa; cursor:pointer;}
+    .passport-container{display:flex; flex-direction:column; align-items:center; width:100%; max-width:600px;}
+    .card{width:100%; aspect-ratio:1.7; border:1px solid #aaa; border-radius:12px; padding:20px; background:var(--card-dark); color:var(--ink-dark); position:relative; display:flex; flex-direction:column; justify-content:flex-start; overflow:hidden;}
+    body.light .card{background:var(--card-light); color:var(--ink-light);}
+    .title{text-align:center;}
+    .title h3{margin:0; font-size:22px;}
+    .kv{margin:6px 0;}
+    .k{font-size:10px;}
+    .v{font-size:14px; font-weight:700; text-transform:uppercase;}
+    #qrcode{margin-top:0; align-self:flex-end; transform:translateY(-10px);}
+    #photoImg{width:55px;height:70px;position:absolute;top:20px;left:20px;border:2px solid #ccc;border-radius:6px;object-fit:cover;}
+    .logo-top-right{position:absolute;top:20px;right:20px;width:50px;height:auto;}
+    .watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.1;z-index:0;width:80%;}
+    @media(max-width:600px){
+      body{width:1024px; overflow-x:auto;}
+    }
+    #overlay{
+      position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8);
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      font-size:28px; font-weight:900;
+      opacity:0; visibility:hidden; transition:opacity 1s ease;
+      z-index:1000; text-align:center;
+      color:white;
+    }
+    #overlay.show{opacity:1; visibility:visible; animation: fadeOut 3s forwards;}
+    @keyframes fadeOut{0%{opacity:1;}70%{opacity:1;}100%{opacity:0; visibility:hidden;}}
+    /* Tint effects */
+    #overlay.green-tint{background:rgba(0,128,0,0.6);}
+    #overlay.golden-aura{background:rgba(255,215,0,0.6); text-shadow:0 0 10px #ffec8b, 0 0 20px #ffd700, 0 0 40px #daa520;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Mage Passport</h1>
+    </div>
+    <div class="header-logo"><img src="anoma.png" alt="Anoma Logo" /></div>
+    <button id="toggleTheme">Toggle Mage</button>
+  </header>  <section class="panel">
+    <div class="grid">
+      <label>Full Name</label>
+      <input id="name" placeholder="e.g., Solara Nightwind" /><label>Mage Rank</label>
+  <select id="rank">
+    <option style="color:var(--yellowgreen)">INTENT</option>
+    <option>INTENT MASTER</option>
+    <option style="color:var(--green)">SEEKER</option>
+    <option style="color:var(--purple)">MASTER</option>
+    <option style="color:var(--yellow)">ACOLYTE</option>
+    <option style="color:var(--blue)">APPRENTICE</option>
+    <option style="color:var(--golden)">GRANDMASTER</option>
+    <option style="color:var(--red)">WIZARD</option>
+  </select>
+
+  <label>Passport ID</label>
+  <input id="pid" placeholder="MAGE-XXXXX" />
+  <button id="randomize">Random ID</button>
+
+  <div class="row">
+    <div>
+      <label>Issue Date</label>
+      <input id="issued" type="date" />
+    </div>
+    <div>
+      <label>Expiry Date</label>
+      <input id="expiry" type="date" />
+    </div>
+  </div>
+  <label>Avatar Photo</label>
+  <input id="photo" type="file" accept="image/*" />
+
+  <div class="btns">
+    <button id="apply">Apply</button>
+    <button id="savePng">Save as PNG</button>
+    <button id="saveJpg">Save as JPG</button>
+    <button id="savePdf">Save as PDF</button>
+  </div>
+</div>
+
+  </section>  <section class="passport-container">
+    <div class="card" id="passport">
+      <img class="watermark" src="anoma.png" alt="Watermark" />
+      <img id="photoImg" style="display:none" />
+      <img id="logoTop" class="logo-top-right" src="anoma.png" alt="Anoma Logo" />
+      <div class="title">
+        <h3>MAGE</h3>
+      </div>
+      <div class="kv"><div class="k">Name</div><div class="v" id="v_name">—</div></div>
+      <div class="kv"><div class="k">Rank</div><div class="v" id="v_rank">—</div></div>
+      <div class="kv"><div class="k">Passport ID</div><div class="v" id="v_pid">—</div></div>
+      <div class="kv"><div class="k">Issued</div><div class="v" id="v_issued">—</div></div>
+      <div class="kv"><div class="k">Expires</div><div class="v" id="v_expiry">—</div></div>
+      <div id="qrcode"></div>
+    </div>
+  </section>  <div id="overlay">WELCOME MAGE</div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>  <script>
+    const $ = s=>document.querySelector(s);
+    const pidI=$('#pid');
+
+    function randomID(){
+      const block=Math.random().toString(36).slice(2,7).toUpperCase();
+      return `MAGE-${block}`;
+    }
+
+    $('#randomize').onclick=()=>{pidI.value=randomID();};
+
+    $('#apply').onclick=()=>{
+      $('#v_name').textContent=$('#name').value.toUpperCase()||'—';
+      const selected=$('#rank').selectedOptions[0];
+      const rank=selected.text.toUpperCase();
+      $('#v_rank').textContent=rank;
+      $('#v_rank').style.color=selected.style.color||'';
+      $('#v_pid').textContent=(pidI.value||'—').toUpperCase();
+      $('#v_issued').textContent=$('#issued').value;
+      $('#v_expiry').textContent=$('#expiry').value;
+      document.getElementById('qrcode').innerHTML="";
+      new QRCode(document.getElementById('qrcode'), {text: pidI.value,width:64,height:64});
+
+      let message="WELCOME MAGE";
+      let overlay=$('#overlay');
+      overlay.className="";
+      if(rank==='SEEKER'){
+        message="Seeker Still seeking";
+        overlay.classList.add('green-tint');
+      }
+      else if(rank==='MASTER'){
+        message="GrandMaster Awaits you Mage";
+      }
+      else if(rank==='GRANDMASTER'){
+        message="Wizard soon twin 67";
+        overlay.classList.add('golden-aura');
+      }
+      overlay.textContent=message;
+      overlay.classList.add('show');
+      setTimeout(()=>{overlay.classList.remove('show'); overlay.classList.remove('green-tint'); overlay.classList.remove('golden-aura');},3000);
+    };
+
+    $('#photo').onchange=(e)=>{
+      const file=e.target.files[0];
+      if(!file)return;
+      const url=URL.createObjectURL(file);
+      $('#photoImg').src=url;
+      $('#photoImg').style.display='block';
+    };
+
+    async function saveCard(format){
+      const card=$('#passport');
+      const canvas=await html2canvas(card);
+      if(format==='pdf'){
+        const { jsPDF } = window.jspdf;
+        const pdf=new jsPDF('l','pt','a4');
+        const img=canvas.toDataURL('image/png');
+        pdf.addImage(img,'PNG',40,40,500,300);
+        pdf.save('passport.pdf');
+      } else {
+        const link=document.createElement('a');
+        link.download=`passport.${format}`;
+        link.href=canvas.toDataURL(`image/${format}`);
+        link.click();
+      }
+    }
+
+    $('#savePng').onclick=()=>saveCard('png');
+    $('#saveJpg').onclick=()=>saveCard('jpeg');
+    $('#savePdf').onclick=()=>saveCard('pdf');
+
+    $('#toggleTheme').onclick=()=>{document.body.classList.toggle('light');};
+
+    pidI.value=randomID();
+  </script></body>
+</html>
