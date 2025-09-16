@@ -1,8 +1,12 @@
 # Anoma-ID
+Each ID carries your chosen rank, from Apprentice to Wizard
+
 
 # https://speedevs.github.io/Anoma-ID/
 
 Anoma ID /Anomage ID passport Generator
+
+
 Features 
 1. Unique Mage ID
 2. Choose Your design Dark or White
