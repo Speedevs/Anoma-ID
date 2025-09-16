@@ -1,5 +1,5 @@
 # Anoma-ID
-Anoma ID
+Anoma ID /Anomage ID passport Generator
 Features 
 1. Unique Mage ID
 2. Choose Your design Dark or White
