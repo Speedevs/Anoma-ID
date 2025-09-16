@@ -71,6 +71,5 @@ An interactive web-based passport generator themed around the **Anomage Island**
 4. Click **Apply** to see your passport.
 5. Export as **PNG, JPG, or PDF**.
 
-##Credits : Mages Corner
+## Credits : Mages Corner
 
-##Dev : Speedevs
