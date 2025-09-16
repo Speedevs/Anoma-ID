@@ -4,7 +4,7 @@ Each ID carries your chosen rank, from Apprentice to Wizard
 
 # https://speedevs.github.io/Anoma-ID/
 
-Anoma ID /Anomage ID passport Generator
+Anoma ID /Anomage ID Generator
 
 
 Features 
