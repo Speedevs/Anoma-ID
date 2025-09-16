@@ -2,7 +2,7 @@
 Each ID carries your chosen rank, from Apprentice to Wizard
 
 
-# https://speedevs.github.io/Anoma-ID/
+<h3> https://speedevs.github.io/Anoma-ID/</h3>
 
 <h3>Anomage Island Passport </h3>
 
