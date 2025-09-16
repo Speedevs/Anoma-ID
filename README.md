@@ -60,10 +60,7 @@ An interactive web-based passport generator themed around the **Anomage Island**
 
 
 ## 📖 How to Use
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/anomage-passport.git
-   ```
+1. Clone this repo
 2. Open the `index.html` file in any modern web browser.
 3. Fill in your mage details:
    - Enter **Full Name**
