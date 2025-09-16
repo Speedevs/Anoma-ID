@@ -1,12 +1,12 @@
-# Anoma-ID Generator 
+# Anoma-ID GENERATOR
 Each ID carries your chosen rank, from Apprentice to Wizard
 
 
-<h3> https://speedevs.github.io/Anoma-ID/</h3>
+# https://speedevs.github.io/Anoma-ID/
 
-<h3>Anomage Island Passport </h3>
+<h2> Anoma-ID GENERATOR </h2>
 
-An interactive web-based passport generator themed around the **Anomage Island** universe. This project allows users to create a personalized mage passport with dynamic ranks, overlay effects, theme toggles, and export options.
+An interactive web-based ID generator themed around the **Anomage Island** universe. This project allows mages to create a personalized ID with dynamic ranks, overlay effects, theme toggles, and export options.
 
 ---
 
@@ -71,5 +71,5 @@ An interactive web-based passport generator themed around the **Anomage Island**
 4. Click **Apply** to see your passport.
 5. Export as **PNG, JPG, or PDF**.
 
-## Credits : Mages Corner
+## Credits Cohort : Mages Corner
 
