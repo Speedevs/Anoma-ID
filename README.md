@@ -57,3 +57,19 @@ An interactive web-based passport generator themed around the **Anomage Island**
 
 ## Screenshots
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://raw.githubusercontent.com/Speedevs/Anoma-ID/refs/heads/main/passport.png)
+
+
+## 📖 How to Use
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/anomage-passport.git
+   ```
+2. Open the `index.html` file in any modern web browser.
+3. Fill in your mage details:
+   - Enter **Full Name**
+   - Select **Mage Rank**
+   - Generate/enter **Passport ID**
+   - Pick **Issue & Expiry Dates**
+   - Upload **Avatar Photo**
+4. Click **Apply** to see your passport.
+5. Export as **PNG, JPG, or PDF**.
