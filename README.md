@@ -10,21 +10,21 @@ An interactive web-based passport generator themed around the **Anomage Island**
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### 🎨 UI & Design
 - **Dark/Light Theme Toggle**: Switch between dark mode and light mode with one click.
 - **Responsive Layout**: Forced desktop-like layout for consistent design.
 - **Custom Branding**: Includes Anoma logo at the top-right and watermark in the background.
 
-### 🧙 Passport Details
+###  Passport Details
 - **Full Name Input**: Enter a mage’s name to display on the passport.
 - **Mage Ranks**: Select from different ranks such as `Intent`, `Seeker`, `Master`, `Acolyte`, `Apprentice`, `Grandmaster`, and `Wizard`. Each rank has its own color highlight.
 - **Passport ID**: Auto-generates an ID starting with `MAGE-XXXXX`, with option to randomize.
 - **Issue & Expiry Dates**: Select validity period using date pickers.
 - **Avatar Upload**: Upload an avatar photo, displayed as a circular profile image on the top-left of the passport.
 
-### ✨ Dynamic Overlay Effects
+###  Dynamic Overlay Effects
 - When applying, the passport displays a rank-specific overlay message:
   - **Seeker** → "Seeker Still seeking" (with green tint)
   - **Master** → "GrandMaster Awaits you Mage"
