@@ -1,4 +1,4 @@
-# Anoma-ID
+# Anoma-ID Generator 
 Each ID carries your chosen rank, from Apprentice to Wizard
 
 
