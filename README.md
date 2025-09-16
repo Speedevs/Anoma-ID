@@ -4,14 +4,52 @@ Each ID carries your chosen rank, from Apprentice to Wizard
 
 # https://speedevs.github.io/Anoma-ID/
 
-Anoma ID /Anomage ID Generator
+# Anomage Island Passport
 
+An interactive web-based passport generator themed around the **Anomage Island** universe. This project allows users to create a personalized mage passport with dynamic ranks, overlay effects, theme toggles, and export options.
 
-Features 
-1. Unique Mage ID
-2. Choose Your design Dark or White
-3. Choose your Mage Rank
-4. Choose your Avatar
+---
+
+## 🚀 Features
+
+### 🎨 UI & Design
+- **Dark/Light Theme Toggle**: Switch between dark mode and light mode with one click.
+- **Responsive Layout**: Forced desktop-like layout for consistent design.
+- **Custom Branding**: Includes Anoma logo at the top-right and watermark in the background.
+
+### 🧙 Passport Details
+- **Full Name Input**: Enter a mage’s name to display on the passport.
+- **Mage Ranks**: Select from different ranks such as `Intent`, `Seeker`, `Master`, `Acolyte`, `Apprentice`, `Grandmaster`, and `Wizard`. Each rank has its own color highlight.
+- **Passport ID**: Auto-generates an ID starting with `MAGE-XXXXX`, with option to randomize.
+- **Issue & Expiry Dates**: Select validity period using date pickers.
+- **Avatar Upload**: Upload an avatar photo, displayed as a circular profile image on the top-left of the passport.
+
+### ✨ Dynamic Overlay Effects
+- When applying, the passport displays a rank-specific overlay message:
+  - **Seeker** → "Seeker Still seeking" (with green tint)
+  - **Master** → "GrandMaster Awaits you Mage"
+  - **Grandmaster** → "Wizard soon twin 67" (with golden aura)
+  - Default → "WELCOME MAGE"
+
+### 💾 Export Options
+- **Save as PNG**
+- **Save as JPG**
+- **Save as PDF**
+
+### 🖼 Branding & Watermark
+- **Anoma Logo** pinned to the top-right corner.
+- **Subtle Watermark** background for added authenticity.
+
+---
+
+## 🛠 Tech Stack
+- **HTML5**
+- **CSS3** (with custom variables for colors & theming)
+- **JavaScript (Vanilla)**
+- **Libraries**:
+  - [html2canvas](https://html2canvas.hertzen.com/) → for image/PDF capture
+  - [jsPDF](https://github.com/parallax/jsPDF) → for PDF export
+
 
 ## Demo Website
 
